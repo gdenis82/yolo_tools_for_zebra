@@ -51,7 +51,7 @@ def convert_to_yolo_format(shape, image_width, image_height, label_to_id):
     width = (x_max - x_min) / image_width
     height = (y_max - y_min) / image_height
 
-    # Получаем числовой идентификатор метки
+    # Получаем id метки
     class_id = label_to_id.get(label, None)
     if class_id is None:
         return None  # Если метка не найдена, пропускаем
@@ -89,7 +89,7 @@ def main(input_dir, output_dir):
     # 1. Собрать все уникальные метки
     labels = collect_labels(input_dir)
 
-    # 2. Создать список классов (classes.txt) и построить словарь метка → индекс
+    # 2. Создать список классов (classes.txt) и построить словарь метка - индекс
     create_classes_file(labels, output_dir)
     label_to_id = {label: idx for idx, label in enumerate(labels)}
 
