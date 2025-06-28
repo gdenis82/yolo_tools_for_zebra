@@ -19,7 +19,7 @@ import random
 from pathlib import Path
 from ultralytics.data.utils import visualize_image_annotations
 
-from utils import count_annotations, setting_logs, SUBSET_NAMES
+from utils import count_annotations, setting_logs, SUBSET_NAMES, IMAGE_FORMATS
 
 LOG_FILE = 'visualize_annotations.log'
 logging = setting_logs(LOG_FILE)
@@ -131,7 +131,7 @@ def main():
     images_folder = os.path.join(dataset_dir, "train/images")
 
     # Получаем список всех файлов изображений
-    image_files = [f for f in os.listdir(images_folder) if f.endswith(('.jpg', '.jpeg', '.png'))]
+    image_files = [f for f in os.listdir(images_folder) if f.endswith(IMAGE_FORMATS)]
 
     # Выбираем случайные изображений
     random_images = random.sample(image_files, min(num_samples, len(image_files)))
