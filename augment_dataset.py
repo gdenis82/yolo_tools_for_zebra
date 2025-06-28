@@ -8,7 +8,7 @@ python augment_dataset.py --dataset /path/to/dataset --output /path/to/output --
 param:
  - dataset: Путь к корневой папке датасета (содержит train, valid, test папки).
  - output: Путь для записи нового аугментированного датасета.
- - mode: Тип датасета. "bboxes" — обработка боксов, "contours" — обработка контуров.
+ - mode: Тип датасета. "bboxes" - обработка боксов, "contours" - обработка контуров.
  - debug_dir: Папка для сохранения изображений с аннотациями (опционально).
 """
 
@@ -47,7 +47,7 @@ class YoloDatasetAugmentor:
 
         :param dataset_path: Путь к корневой папке датасета (содержит train, valid, test папки).
         :param output_path: Путь для записи нового аугментированного датасета.
-        :param mode: Тип датасета. "bboxes" — обработка боксов, "contours" — обработка контуров.
+        :param mode: Тип датасета. "bboxes" - обработка боксов, "contours" - обработка контуров.
         """
         self.dataset_path = dataset_path
         self.output_path = output_path
@@ -249,7 +249,7 @@ class YoloDatasetAugmentor:
         Зеркально отражает боксы относительно вертикальной оси для нормализованных данных.
         """
         flipped = []
-        for cls, (x, y, w, h) in bboxes:  # x, y — центр, w, h — размеры
+        for cls, (x, y, w, h) in bboxes:  # x, y - центр, w, h - размеры
             flipped_x = 1 - x
             flipped.append((cls, (flipped_x, y, w, h)))
         return flipped
@@ -341,8 +341,8 @@ class YoloDatasetAugmentor:
             with open(label_path, "r") as f:
                 for line in f:
                     _line = list(map(float, line.strip().split(" ")))  # Разбиваем строку
-                    cls = int(_line[0])  # Первый элемент — это класс
-                    points = _line[1:]  # Остальные элементы — координаты
+                    cls = int(_line[0])  # Первый элемент - это класс
+                    points = _line[1:]  # Остальные элементы - координаты
                     if len(points) % 2 == 0:  # Убедимся, что это пары x, y
                         contour = [(points[i], points[i + 1]) for i in range(0, len(points), 2)]
                         contours.append((cls, contour))  # Добавляем класс и контур
