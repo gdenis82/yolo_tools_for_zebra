@@ -1,15 +1,40 @@
 # YOLO Tools for Zebra
 
+## Description
 Этот репозиторий содержит набор служебных скриптов для работы с моделями обнаружения и классификации объектов YOLO (You Only Look Once).  
 Эти инструменты упрощают подготовку, расширение, преобразование, обучение и проверку наборов данных для задач компьютерного зрения. 
 Предназначены для работы с Python 3.9+.
 
+Проект включает в себя полный цикл работы с данными:
+
+1. **Подготовка данных**:
+   - Извлечение кадров из видео
+   - Аугментация данных
+   - Балансировка классов
+   - Разделение на тренировочный и тестовый наборы
+
+2. **Обучение моделей**:
+   - Несколько версий обучения (train_yolo11x1-4)
+   - Использование предобученной модели (yolo11x.pt)
+
+3. **Оценка и визуализация**:
+   - Валидация метрик модели
+   - Визуализация аннотаций
+   - Создание графиков и матриц ошибок
+
+4. **Применение**:
+   - Предсказание по видео
+   - Детекция объектов
+
+Проект организован таким образом, чтобы обеспечить четкое разделение между различными этапами обработки данных и обучения моделей, 
+с сохранением промежуточных результатов в соответствующих директориях.
+
 ## Prerequisites
-Before you start, ensure that you have the following prerequisites installed:
+Прежде чем начать, убедитесь, что у вас установлены следующие предварительные требования: 
 
-Step 0. Download and install Miniconda from the official [website](https://docs.anaconda.com/miniconda/).
+Step 0. Скачайте и установите Miniconda с официального [website](https://docs.anaconda.com/miniconda/).
 
-Step 1. Create a new conda environment with Python version 3.10 or higher, and activate it.
+Step 1. Создайте новую среду conda с Python версии 3.10 или выше и активируйте ее.
 
 ```
 conda create --name zebraTest python=3.10 -y
@@ -18,7 +43,7 @@ conda create --name zebraTest python=3.10 -y
 conda activate zebraTest
 ```
 
-or use venv
+или используйте venv
 ```
 python3.10 -m venv .venv
 ```
@@ -30,30 +55,30 @@ linux:
 source .venv/bin/activate
 ```
 
-Step 3. Download and install FFmpeg.
+Step 3. Скачайте и установите FFmpeg.
 
-To install FFmpeg, follow these steps:
-1. Visit the official FFmpeg website: [ffmpeg.org](https://www.ffmpeg.org/download.html).
-2. Download the appropriate package.
-3. Follow the installation instructions for your platform.
+Чтобы установить FFmpeg, выполните следующие действия:
+1. Посетите официальный сайт FFmpeg: [ffmpeg.org](https://www.ffmpeg.org/download.html).
+2. Загрузите соответствующий пакет.
+3. Следуйте инструкциям по установке для вашей платформы.
 
 ## Installation
 
-1. Clone this repository
-2. Install the required dependencies:
+1. Клонировать этот репозиторий
+2.Установите необходимые зависимости:
 
 ```
 pip install -r requirements.txt
 ```
 
-For train GPU
+Для обучения на GPU
 ```
 pip uninstall torch torchvision
 ```
 ```
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
-Enable TensorBoard logging
+Включить ведение журнала на TensorBoard
 ```
 yolo settings tensorboard=True
 ```
@@ -218,6 +243,26 @@ names:
 - ffmpeg-python (video processing)
 - albumentations (data augmentation)
 - tensorboard (logging and visualization)
+
+## Основные файлы
+
+```
+ZebraTest/
+├── augment_dataset.py          # Скрипт для аугментации данных
+├── balance_classes.py          # Скрипт для балансировки классов
+├── convert_ann.py              # Скрипт конвертации .json аннотаций в yolo фармат
+├── extract_frames.py           # Извлечение кадров из видео
+├── prediction_by_video.py      # Предсказание по видео
+├── README.md                   # Документация проекта
+├── requirements.txt            # Зависимости проекта
+├── split_dataset.py            # Разделение датасета
+├── REPORT.md                   # Отчет о выполнении задания
+├── train.py                    # Скрипт для обучения модели
+├── utils.py                    # Вспомогательные функции
+├── valid_model_metrics.py      # Валидация метрик модели
+├── visualize_annotations.py    # Визуализация аннотаций
+└
+```
 
 
 
