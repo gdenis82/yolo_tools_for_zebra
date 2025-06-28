@@ -246,7 +246,7 @@ names:
 ZebraTest/
 ├── augment_dataset.py          # Скрипт для аугментации данных
 ├── balance_classes.py          # Скрипт для балансировки классов
-├── convert_ann.py              # Скрипт конвертации .json аннотаций в yolo фармат
+├── convert_ann.py              # Скрипт конвертации .json аннотаций (X-AnyLabeling) в yolo фармат
 ├── extract_frames.py           # Извлечение кадров из видео
 ├── prediction_by_video.py      # Предсказание по видео
 ├── README.md                   # Документация проекта
