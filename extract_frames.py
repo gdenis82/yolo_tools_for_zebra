@@ -25,7 +25,12 @@ logging = setting_logs(LOG_FILE)
 
 def extract_frames_ffmpeg(video_path, output_folder, frames_per_second=1):
     """
-    Использует FFmpeg для извлечения кадров из видео файла.
+    Извлечет кадры из видео файла с помощью FFmpeg и сохраните в указанной папке.
+
+
+    :param video_path (str): Путь к входному видеофайлу.
+    :param output_folder (str): Путь к папке, в которой будут храниться извлеченные кадры.
+    :param frames_per_second (int, optional): Количество извлекаемых кадров в секунду видео.
     """
     video_name = Path(video_path).name
     frame_filename_pattern = os.path.join(output_folder, f"{video_name}_frame_%04d.jpg")
