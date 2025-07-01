@@ -20,7 +20,7 @@ import argparse
 
 from pathlib import Path
 from sklearn.model_selection import train_test_split
-from utils import count_annotations, setting_logs
+from utils import count_annotations, setting_logs, IMAGE_FORMATS
 
 LOG_FILE = 'split_dataset.log'
 logging = setting_logs(LOG_FILE)
@@ -110,7 +110,7 @@ def main():
     images_path = os.path.join(dataset_path, "images")
 
     # Получаем все файлы с расширением .jpg (или другие нужные файлы)
-    image_files = [f for f in os.listdir(images_path) if f.endswith('.jpg')]
+    image_files = [f for f in os.listdir(images_path) if f.endswith(IMAGE_FORMATS)]
 
     # Проверка на пустую директорию
     if not image_files:
