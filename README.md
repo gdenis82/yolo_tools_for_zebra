@@ -179,7 +179,7 @@ python compare_training_model_metrics.py --dir path/to/training/folders --model-
 
 param:
  - dir: Путь к проекту тренировок
- - output: Путь для сохранения результата
+ - output: Путь для сохранения результата (не обязательно, по умолчанию создаст в папке проекта с тренировками)
  - model-type: По умолчанию best (best, last)
  - dataset: Путь к файлу .yaml набора данных
 
