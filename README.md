@@ -172,6 +172,17 @@ param:
 
 Результат сохраняет в файл отчета .md 
 
+Usage:
+```
+python compare_training_model_metrics.py --dir path/to/training/folders --model-type best --dataset path/to/dataset.yaml
+```
+
+param:
+ - dir: Путь к проекту тренировок
+ - output: Путь для сохранения результата
+ - model-type: По умолчанию best (best, last)
+ - dataset: Путь к файлу .yaml набора данных
+
 ## Usage Examples
 
 В верхней части каждого скрипта приведен пример его использования. 
