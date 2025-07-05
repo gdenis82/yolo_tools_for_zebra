@@ -10,6 +10,9 @@
     - metrics/recall
     - metrics/F1-score
     - metrics/F1-confidence
+
+# Example usage:
+# python compare_training_model_metrics.py --dir path/to/training/folders --model-type best --dataset path/to/dataset.yaml
 """
 
 import os
